@@ -258,7 +258,7 @@ src="https://www.facebook.com/tr?id=968885909519546&ev=PageView&noscript=1"
         <p class="sub">Toda segunda, quarta e sexta, <strong>Rodrigo Naldi</strong> te ajuda a unir Fé, Negócios e Espiritualidade prática pra você <strong class="blue">decidir com clareza</strong> e parar de viver no automático.</p>
 
         <div class="news">
-          <form class="field" action="https://rodrigonaldif.activehosted.com/proc.php" method="POST" target="ac_sink" onsubmit="if(window.fbq)fbq('track','Lead');setTimeout(function(){window.location='obrigado.html'},1000)">
+          <form class="field" action="https://rodrigonaldif.activehosted.com/proc.php" method="POST" target="ac_sink" onsubmit="return acLead(this)">
             <input type="hidden" name="u" value="3"><input type="hidden" name="f" value="3"><input type="hidden" name="s"><input type="hidden" name="c" value="0"><input type="hidden" name="m" value="0"><input type="hidden" name="act" value="sub"><input type="hidden" name="v" value="2"><input type="hidden" name="or" value="8d0c67dd-b9fd-4332-8ca6-8750df73337a">
             <input type="text" name="fullname" placeholder="Digite seu nome" required>
             <input type="tel" name="phone" placeholder="Seu melhor número (WhatsApp)" required>
@@ -419,7 +419,7 @@ src="https://www.facebook.com/tr?id=968885909519546&ev=PageView&noscript=1"
   <div class="wrap inner tcol">
     <h2 class="reveal">Comece agora. É grátis.</h2>
     <div class="news reveal">
-      <form class="field" action="https://rodrigonaldif.activehosted.com/proc.php" method="POST" target="ac_sink" onsubmit="if(window.fbq)fbq('track','Lead');setTimeout(function(){window.location='obrigado.html'},1000)">
+      <form class="field" action="https://rodrigonaldif.activehosted.com/proc.php" method="POST" target="ac_sink" onsubmit="return acLead(this)">
         <input type="hidden" name="u" value="3"><input type="hidden" name="f" value="3"><input type="hidden" name="s"><input type="hidden" name="c" value="0"><input type="hidden" name="m" value="0"><input type="hidden" name="act" value="sub"><input type="hidden" name="v" value="2"><input type="hidden" name="or" value="8d0c67dd-b9fd-4332-8ca6-8750df73337a">
         <input type="text" name="fullname" placeholder="Digite seu nome" required>
         <input type="tel" name="phone" placeholder="Seu melhor número (WhatsApp)" required>
@@ -462,7 +462,7 @@ src="https://www.facebook.com/tr?id=968885909519546&ev=PageView&noscript=1"
     <button class="close" data-close>&times;</button>
     <h3>Falta pouco. Preencha pra entrar.</h3>
     <p class="msub">Cadastre-se e participe do CaFÉ &amp; Direção.</p>
-    <form action="https://rodrigonaldif.activehosted.com/proc.php" method="POST" target="ac_sink" onsubmit="if(window.fbq)fbq('track','Lead');setTimeout(function(){window.location='obrigado.html'},1000)">
+    <form action="https://rodrigonaldif.activehosted.com/proc.php" method="POST" target="ac_sink" onsubmit="return acLead(this)">
       <input type="hidden" name="u" value="3"><input type="hidden" name="f" value="3"><input type="hidden" name="s"><input type="hidden" name="c" value="0"><input type="hidden" name="m" value="0"><input type="hidden" name="act" value="sub"><input type="hidden" name="v" value="2"><input type="hidden" name="or" value="8d0c67dd-b9fd-4332-8ca6-8750df73337a">
       <input type="text" name="fullname" placeholder="Seu nome" required>
       <input type="tel" name="phone" placeholder="Seu WhatsApp" required>
@@ -474,6 +474,20 @@ src="https://www.facebook.com/tr?id=968885909519546&ev=PageView&noscript=1"
 </div>
 
 <script>
+// ===== Lead: pixel (com event_id p/ dedup) + CAPI (servidor) + redirect =====
+function getCookie(n){var m=document.cookie.match('(^|; )'+n+'=([^;]*)');return m?decodeURIComponent(m[2]):'';}
+function acLead(form){
+  try{
+    var email=(form.querySelector('[name=email]')||{}).value||'';
+    var phone=(form.querySelector('[name=phone]')||{}).value||'';
+    var eid='lead.'+Date.now()+'.'+Math.random().toString(16).slice(2);
+    if(window.fbq)fbq('track','Lead',{},{eventID:eid});
+    fetch('/api/capi',{method:'POST',headers:{'Content-Type':'application/json'},keepalive:true,
+      body:JSON.stringify({email:email,phone:phone,event_id:eid,event_source_url:location.href,fbp:getCookie('_fbp'),fbc:getCookie('_fbc')})}).catch(function(){});
+  }catch(e){}
+  setTimeout(function(){window.location='obrigado.html'},1000);
+  return true; // mantém o POST nativo pro ActiveCampaign (iframe)
+}
 const io=new IntersectionObserver((es)=>{es.forEach((e,i)=>{if(e.isIntersecting){e.target.style.transitionDelay=(Math.min(i,5)*90)+'ms';e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 const modal=document.getElementById('modal');
