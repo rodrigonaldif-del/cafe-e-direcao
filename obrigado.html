@@ -97,6 +97,7 @@ src="https://www.facebook.com/tr?id=968885909519546&ev=PageView&noscript=1"
   <p class="lead">Clique no botão para entrar no grupo e receber o <strong style="color:#fff">link de cada aula</strong> no seu WhatsApp, toda segunda, quarta e sexta às 7h07:</p>
 
   <a class="btn btn--wa" href="https://chat.whatsapp.com/Jg7N5KzRznlDvlKvTJ9C9Z?mode=gi_t" target="_blank" rel="noopener"><i class="ph ph-whatsapp-logo"></i>Entrar no grupo do WhatsApp</a>
+  <p class="note">Você será levado ao grupo automaticamente em <strong id="cd" style="color:#fff">7</strong>s…</p>
 
   <a class="btn btn--yt" href="https://www.youtube.com/@rodrigonaldii?sub_confirmation=1" target="_blank" rel="noopener">
     <svg viewBox="0 0 28 20" width="22" height="16"><rect width="28" height="20" rx="5" fill="#FF0000"/><path d="M11 6 L19 10 L11 14 Z" fill="#fff"/></svg>
@@ -112,5 +113,12 @@ src="https://www.facebook.com/tr?id=968885909519546&ev=PageView&noscript=1"
   <a href="politica-privacidade.html" style="color:var(--accent-2)">Política de Privacidade</a> · © Todos os direitos reservados.
 </footer>
 
+<script>
+(function(){
+  var url='https://chat.whatsapp.com/Jg7N5KzRznlDvlKvTJ9C9Z?mode=gi_t';
+  var n=7, el=document.getElementById('cd');
+  var t=setInterval(function(){ n--; if(el)el.textContent=n; if(n<=0){ clearInterval(t); window.location.href=url; } },1000);
+})();
+</script>
 </body>
 </html>
