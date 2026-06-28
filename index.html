@@ -241,9 +241,10 @@ footer a{color:var(--accent-2);text-decoration:none}
         <p class="sub">Toda segunda, quarta e sexta, <strong>Rodrigo Naldi</strong> te ajuda a unir Fé, Negócios e Espiritualidade prática pra você <strong class="blue">decidir com clareza</strong> e parar de viver no automático.</p>
 
         <div class="news">
-          <form class="field" action="obrigado.html" method="get">
-            <input type="text" name="nome" placeholder="Digite seu nome" required>
-            <input type="tel" name="telefone" placeholder="Seu melhor número (WhatsApp)" required>
+          <form class="field" action="https://rodrigonaldif.activehosted.com/proc.php" method="POST" target="ac_sink" onsubmit="setTimeout(function(){window.location='obrigado.html'},1000)">
+            <input type="hidden" name="u" value="3"><input type="hidden" name="f" value="3"><input type="hidden" name="s"><input type="hidden" name="c" value="0"><input type="hidden" name="m" value="0"><input type="hidden" name="act" value="sub"><input type="hidden" name="v" value="2"><input type="hidden" name="or" value="8d0c67dd-b9fd-4332-8ca6-8750df73337a">
+            <input type="text" name="fullname" placeholder="Digite seu nome" required>
+            <input type="tel" name="phone" placeholder="Seu melhor número (WhatsApp)" required>
             <input type="email" name="email" placeholder="Digite seu melhor e-mail" required>
             <button class="btn btn--full" type="submit">Cadastre-se e faça parte</button>
           </form>
@@ -401,9 +402,10 @@ footer a{color:var(--accent-2);text-decoration:none}
   <div class="wrap inner tcol">
     <h2 class="reveal">Comece agora. É grátis.</h2>
     <div class="news reveal">
-      <form class="field" action="obrigado.html" method="get">
-        <input type="text" name="nome" placeholder="Digite seu nome" required>
-        <input type="tel" name="telefone" placeholder="Seu melhor número (WhatsApp)" required>
+      <form class="field" action="https://rodrigonaldif.activehosted.com/proc.php" method="POST" target="ac_sink" onsubmit="setTimeout(function(){window.location='obrigado.html'},1000)">
+        <input type="hidden" name="u" value="3"><input type="hidden" name="f" value="3"><input type="hidden" name="s"><input type="hidden" name="c" value="0"><input type="hidden" name="m" value="0"><input type="hidden" name="act" value="sub"><input type="hidden" name="v" value="2"><input type="hidden" name="or" value="8d0c67dd-b9fd-4332-8ca6-8750df73337a">
+        <input type="text" name="fullname" placeholder="Digite seu nome" required>
+        <input type="tel" name="phone" placeholder="Seu melhor número (WhatsApp)" required>
         <input type="email" name="email" placeholder="Seu melhor e-mail" required>
         <button class="btn btn--full" type="submit">Cadastre-se e faça parte</button>
       </form>
@@ -434,15 +436,19 @@ footer a{color:var(--accent-2);text-decoration:none}
   </div>
 </footer>
 
-<!-- POPUP (email only) -->
+<!-- iframe oculto que recebe o POST do ActiveCampaign (evita sair da página antes do redirect) -->
+<iframe name="ac_sink" title="ac" style="display:none;width:0;height:0;border:0" aria-hidden="true"></iframe>
+
+<!-- POPUP -->
 <div class="modal" id="modal">
   <div class="box">
     <button class="close" data-close>&times;</button>
     <h3>Falta pouco. Preencha pra entrar.</h3>
     <p class="msub">Cadastre-se e participe do CaFÉ &amp; Direção.</p>
-    <form action="obrigado.html" method="get">
-      <input type="text" name="nome" placeholder="Seu nome" required>
-      <input type="tel" name="telefone" placeholder="Seu WhatsApp" required>
+    <form action="https://rodrigonaldif.activehosted.com/proc.php" method="POST" target="ac_sink" onsubmit="setTimeout(function(){window.location='obrigado.html'},1000)">
+      <input type="hidden" name="u" value="3"><input type="hidden" name="f" value="3"><input type="hidden" name="s"><input type="hidden" name="c" value="0"><input type="hidden" name="m" value="0"><input type="hidden" name="act" value="sub"><input type="hidden" name="v" value="2"><input type="hidden" name="or" value="8d0c67dd-b9fd-4332-8ca6-8750df73337a">
+      <input type="text" name="fullname" placeholder="Seu nome" required>
+      <input type="tel" name="phone" placeholder="Seu WhatsApp" required>
       <input type="email" name="email" placeholder="Seu melhor e-mail" required>
       <button class="btn btn--full" type="submit">Cadastre-se e faça parte</button>
       <p class="consent">Ao se cadastrar você concorda em receber mensagens de Rodrigo Naldi. <a href="#" style="color:var(--accent-2)">Política de Privacidade</a></p>
