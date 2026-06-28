@@ -212,6 +212,23 @@ footer a{color:var(--accent-2);text-decoration:none}
   .btn{width:100%}
 }
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '968885909519546');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=968885909519546&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -241,7 +258,7 @@ footer a{color:var(--accent-2);text-decoration:none}
         <p class="sub">Toda segunda, quarta e sexta, <strong>Rodrigo Naldi</strong> te ajuda a unir Fé, Negócios e Espiritualidade prática pra você <strong class="blue">decidir com clareza</strong> e parar de viver no automático.</p>
 
         <div class="news">
-          <form class="field" action="https://rodrigonaldif.activehosted.com/proc.php" method="POST" target="ac_sink" onsubmit="setTimeout(function(){window.location='obrigado.html'},1000)">
+          <form class="field" action="https://rodrigonaldif.activehosted.com/proc.php" method="POST" target="ac_sink" onsubmit="if(window.fbq)fbq('track','Lead');setTimeout(function(){window.location='obrigado.html'},1000)">
             <input type="hidden" name="u" value="3"><input type="hidden" name="f" value="3"><input type="hidden" name="s"><input type="hidden" name="c" value="0"><input type="hidden" name="m" value="0"><input type="hidden" name="act" value="sub"><input type="hidden" name="v" value="2"><input type="hidden" name="or" value="8d0c67dd-b9fd-4332-8ca6-8750df73337a">
             <input type="text" name="fullname" placeholder="Digite seu nome" required>
             <input type="tel" name="phone" placeholder="Seu melhor número (WhatsApp)" required>
@@ -402,7 +419,7 @@ footer a{color:var(--accent-2);text-decoration:none}
   <div class="wrap inner tcol">
     <h2 class="reveal">Comece agora. É grátis.</h2>
     <div class="news reveal">
-      <form class="field" action="https://rodrigonaldif.activehosted.com/proc.php" method="POST" target="ac_sink" onsubmit="setTimeout(function(){window.location='obrigado.html'},1000)">
+      <form class="field" action="https://rodrigonaldif.activehosted.com/proc.php" method="POST" target="ac_sink" onsubmit="if(window.fbq)fbq('track','Lead');setTimeout(function(){window.location='obrigado.html'},1000)">
         <input type="hidden" name="u" value="3"><input type="hidden" name="f" value="3"><input type="hidden" name="s"><input type="hidden" name="c" value="0"><input type="hidden" name="m" value="0"><input type="hidden" name="act" value="sub"><input type="hidden" name="v" value="2"><input type="hidden" name="or" value="8d0c67dd-b9fd-4332-8ca6-8750df73337a">
         <input type="text" name="fullname" placeholder="Digite seu nome" required>
         <input type="tel" name="phone" placeholder="Seu melhor número (WhatsApp)" required>
@@ -445,7 +462,7 @@ footer a{color:var(--accent-2);text-decoration:none}
     <button class="close" data-close>&times;</button>
     <h3>Falta pouco. Preencha pra entrar.</h3>
     <p class="msub">Cadastre-se e participe do CaFÉ &amp; Direção.</p>
-    <form action="https://rodrigonaldif.activehosted.com/proc.php" method="POST" target="ac_sink" onsubmit="setTimeout(function(){window.location='obrigado.html'},1000)">
+    <form action="https://rodrigonaldif.activehosted.com/proc.php" method="POST" target="ac_sink" onsubmit="if(window.fbq)fbq('track','Lead');setTimeout(function(){window.location='obrigado.html'},1000)">
       <input type="hidden" name="u" value="3"><input type="hidden" name="f" value="3"><input type="hidden" name="s"><input type="hidden" name="c" value="0"><input type="hidden" name="m" value="0"><input type="hidden" name="act" value="sub"><input type="hidden" name="v" value="2"><input type="hidden" name="or" value="8d0c67dd-b9fd-4332-8ca6-8750df73337a">
       <input type="text" name="fullname" placeholder="Seu nome" required>
       <input type="tel" name="phone" placeholder="Seu WhatsApp" required>
